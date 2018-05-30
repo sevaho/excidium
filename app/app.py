@@ -18,6 +18,10 @@ import getopt
 # GLOBAL VARIABLES
 # -----------------------------------------------------------------------------------------------------------------------------
 
+target          = ""
+port            = 0
+wordlist_dir    = ""
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # CLASSES
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -67,6 +71,8 @@ def banner ():
 
 def main (argv):
 
+    global target, port, wordlist_dir
+
     banner()
 
     # if not len(argv):
@@ -74,7 +80,11 @@ def main (argv):
 
     try:
 
-        opts, args = getopt.getopt(argv, "ha:", ["help"])
+        opts, args = getopt.getopt(argv, "h:t:p:w:", [
+            "help",
+            "target",
+            "port",
+            "wordlist_dir"])
 
     except getopt.GetoptError as err:
 
@@ -85,8 +95,12 @@ def main (argv):
 
         if opt in ("-h", "--help"):
             usage()
-        elif opt in ("-a", "--arg1"):
-            print(arg)
+        elif opt in ("-t", "--target"):
+            target = arg
+        elif opt in ("-p", "--port"):
+            port = int(arg)
+        elif opt in ("-w", "--wordlist_dir"):
+            wordlist_dir = arg
         else:
             assert False, "Unhandled Option"
 

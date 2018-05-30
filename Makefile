@@ -5,9 +5,6 @@ help: ## Show this help message (default)]
 
 run: ## DEV : run locally
 	echo "run locally, uncomment what you need in the Makefile"
-	#npm start # angular
-	#npm install --prefix app # nodejs
-	#npm start --prefix app # nodejs
 	pip install --user -r app/requirements.txt
 	python app/app.py # python
 	#gunicorn --workers=2 --bind=0.0.0.0:5000 --chdir app app:app # python-flask
