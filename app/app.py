@@ -33,19 +33,24 @@ wordlist_dir    = ""
 
 def usage ():
 
-    print("Usage: %s [OPTIONS]... [ARGS]... \
+    print("Usage: python %s [OPTIONS]... [ARGS]... \
             \n \
-            \n  description\
+            \n\tdescription\
             \n \
             \nOPTIONS:\
             \n \
-            \n  -h, *       display the help and exit\
+            \n\t-h, *               display the help and exit \
+            \n\t-t, --target        target \
+            \n\t-p, --port          port \
+            \n\t-w, --wordlist      wordlist \
             \n \
             \nEXAMPLES:\
             \n \
+            \n\tpython %s -t 127.0.0.1 -p 8000 \
+            \n \
             \nNOTE:\
             \n \
-            " % (sys.argv[0]))
+            " % (sys.argv[0], sys.argv[0]))
 
     sys.exit(1)
 
@@ -80,7 +85,7 @@ def main (argv):
 
     try:
 
-        opts, args = getopt.getopt(argv, "h:t:p:w:", [
+        opts, args = getopt.getopt(argv, "ht:p:w:", [
             "help",
             "target",
             "port",
